@@ -1,0 +1,56 @@
+package edu.kh.jdbc1;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class JDBCExample4_1 {
+	
+	public static void main(String[] args) {
+		
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		try {
+			
+			System.out.print("직급명 입력 : ");
+			String inputJobName = sc.next();
+			
+			System.out.print("급여 입력 : ");
+			int inputSalary = sc.nextInt();
+			
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			String url = "jdbc:oracle:thin:@localhost:1521:XE";
+			String user = "kh_sjy";
+			String pw = "kh1234";
+			
+			conn = DriverManager.getConnection(url, user, pw);
+
+			String sql = "SELECT EMP_NAME, JOB_NAME, SALARY, SALARY*12 ANNUAL_INCOME "
+					+ "FROM EMPLOYEE "
+					+ "JOIN JOB USING (JOB_CODE) "
+					+ "WHERE JOB_NAME = '" + inputJobName + "'"
+					+ "AND SALARY > " + inputSalary;
+						
+			stmt = conn.createStatement();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(stmt != null) stmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+}

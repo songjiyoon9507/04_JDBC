@@ -1,0 +1,13 @@
+package edu.kh.jdbc1;
+
+public class JDBCExample4 {
+
+	public static void main(String[] args) {
+		
+		// 직급명, 급여를 입력 받아
+		// 해당 직급에서 입력 받은 급여보다 많이 받는 사원의
+		// 이름, 직급명, 급여, 연봉을 조회하여 출력
+		
+		
+	}
+}

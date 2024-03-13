@@ -1,0 +1,52 @@
+package edu.kh.jdbc1;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class JDBCExample3 {
+	
+	public static void main(String[] args) {
+		
+		// 부서명을 입력받아 같은 부서에 있는 사원의
+		// 사원명, 부서명, 급여 조회
+		
+		// JDBC 객체 참조 변수 선언
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		try {
+			
+			System.out.print("부서명 입력 : "); // 총무부
+			String input = sc.nextLine();
+			
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			String type = "jdbc:oracle:thin:@"; // JDBC 드라이버 종류
+			String ip = "localhost"; // DB 서버 컴퓨터 IP 전달
+			String port = ":1521"; // 포트번호
+			String sid = ":XE"; // DB 이름
+			String user = "kh_sjy"; // 사용자 계정
+			String pw = "kh1234"; // 비밀번호
+			
+			conn = DriverManager.getConnection(type+ip+port+sid, user, pw);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(stmt != null) stmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
