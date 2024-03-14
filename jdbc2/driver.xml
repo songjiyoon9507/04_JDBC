@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>driver.xml file!!!</comment>
+	
+	<!-- test.xml Source 파일 확인 -->
+	<!-- keyName을 부르면 원하는 내용... 이라는 value가 나옴 -->
+	<!-- xml 파일에 빨간줄은 신경 안써도 됨 -->
+	
+	<!-- 마크업 언어 주석 -->
+	<!-- ctrl + shift + / -->
+	
+	<!-- entry : K :V 한 쌍 -->
+	<entry key="driver">oracle.jdbc.driver.OracleDriver</entry>
+	<!-- Class.forName 안에 쓰던 드라이버 경로 -->
+	
+	<entry key="url">jdbc:oracle:thin:@localhost:1521:XE</entry>
+	<!-- DriverManager.getConnection 통해서 전해줄 값 -->
+	
+	<entry key="user">kh_sjy</entry>
+	
+	<entry key="password">kh1234</entry>
+	
+	<!-- 보안상 유리 -->
+	<!-- xml 파일은 외부 파일 java에 작성된 코드가 아님 -->
+</properties>

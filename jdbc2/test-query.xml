@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>test-query.xml file!!!</comment>
+	
+	<!-- 쿼리문 작성 -->
+	<entry key="insert">
+		INSERT INTO TB_TEST
+		VALUES(?, ?, ?)
+	</entry>
+	
+	<!-- ? PLACEHOLDER 위치 홀더 -->
+	<!-- ; (세미콜론) 넣으면 안됨 -->
+	
+	<entry key="update">
+		UPDATE TB_TEST SET
+		TEST_TITLE = ?,
+		TEST_CONTENT = ?
+		WHERE TEST_NO = ?
+	</entry>
+	
+	<entry key="delete">
+		DELETE FROM TB_TEST WHERE TEST_NO = ?
+	</entry>
+</properties>
