@@ -17,6 +17,7 @@ public class JDBCExample1 {
 		// * JDBC를 이용한 어플리케이션 만들 때 필요한 것 *
 		// 1. Java 의 JDBC 관련 인터페이스
 		// 2. DBMS (Oracle)
+		//    --> Oracle DBMS 연결해서 사용하려면 Oracle JDBC Driver 필요 (ojdbc)
 		// 3. Oracle 에서 Java 와 연결할 때 사용할
 		//    JDBC를 상속받아 구현할 클래스 모음 (ojdbc10.jar 라이브러리)
 		// project 우클릭 Properties 클릭 Java Build Path 클릭
@@ -56,6 +57,11 @@ public class JDBCExample1 {
 			// 앞에까진 경로 뒤에는 클래스 이름
 			// -> 메모리에 객체가 생성되어지고 JDBC 필요 시 알아서 참조하여 사용
 			// --> 생략해도 자동으로 메모리 로드가 진행됨 (명시적으로 작성하는 걸 권장)
+			
+			// DriverManager에서 getConnection메소드 이용하게 되면
+			// 메모리에 있었던 드라이버 정보를 가지고 와서
+			// ojdbc 드라이버를 확인하고
+			// oracle db랑 java 통로 만들어줌
 			
 			// 2. 연결 정보를 담은 Connection 을 생성
 			// DB와 Java 왔다갔다 하는 도로를 뚫겠다.
