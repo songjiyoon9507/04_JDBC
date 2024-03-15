@@ -1,25 +1,28 @@
 package edu.kh.emp.model.vo;
 
+// VO : 값 저장용 객체 (== DB 조회 결과 한 행을 저장)
 public class Employee {
-	private int empId; // 사원 번호
+	private int empId;  // 사원 번호
 	private String empName; // 이름
 	private String empNo; // 주민등록번호
 	private String email; // 이메일
-	private String phone; // 전화번호
+	private String phone;  // 전화번호
 	private String departmentTitle; // 부서명
 	private String jobName; // 직급명
-	private int salary; // 급여
+	private int salary; //급여
 	
 	private String deptCode; // 부서코드
 	private String jobCode; // 직급코드
-	private String salLevel; //급여등급
+	private String salLevel; // 급여등급
 	private double bonus; // 보너스
 	private int managerId; // 사수번호
+	
 	
 	public Employee() {}
 
 	public Employee(int empId, String empName, String empNo, String email, String phone, String departmentTitle,
 			String jobName, int salary) {
+		super();
 		this.empId = empId;
 		this.empName = empName;
 		this.empNo = empNo;
@@ -30,15 +33,14 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	public Employee(int empId, String empName, String empNo, String email, String phone, String departmentTitle,
-			String jobName, int salary, String deptCode, String jobCode, String salLevel, double bonus, int managerId) {
+	public Employee(int empId, String empName, String empNo, String email, String phone, int salary, String deptCode,
+			String jobCode, String salLevel, double bonus, int managerId) {
+		super();
 		this.empId = empId;
 		this.empName = empName;
 		this.empNo = empNo;
 		this.email = email;
 		this.phone = phone;
-		this.departmentTitle = departmentTitle;
-		this.jobName = jobName;
 		this.salary = salary;
 		this.deptCode = deptCode;
 		this.jobCode = jobCode;

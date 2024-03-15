@@ -1,0 +1,10 @@
+package edu.kh.home.jdbc1;
+
+public class JDBCExample3 {
+
+	public static void main(String[] args) {
+		
+		// 부서명을 입력 받아 같은 부서에 있는 사원의
+		// 사원명, 부서명, 급여 조회
+	}
+}
