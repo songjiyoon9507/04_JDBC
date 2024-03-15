@@ -40,10 +40,21 @@ public class JDBCExample3 {
 			String pw = "kh1234";
 			conn = DriverManager.getConnection(url,user,pw);
 			
+			// xml 폴더는 CreateXMLFile 클래스 만들어서 xml 만드는 기능만 만들어둠
+			
+			// Class 부터 conn 까지 driver.xml에 만들어서 JDBCTemplate에서 connection 만듦
+			// static 메서드 써서 필요할 때 가져다 씀
+			
 			String sql = "SELECT EMP_NAME, NVL(DEPT_TITLE, '부서없음') DEPT_TITLE, SALARY"
 					+ " FROM EMPLOYEE"
 					+ " LEFT JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID)"
 					+ " WHERE NVL(DEPT_TITLE, '부서없음') = '" + input + "'";
+			// Java 에서 작성되는 SQL에 문자열 변수 추가할 경우
+			// *** '' (DB 문자열 리터럴) 이 누락되지 않도록 주의 ***
+			// 만약 '' 미작성 시 String 값은 컬럼명으로 인식되어
+			// 부적합한 식별자 오류가 발생함
+			
+			// SQL 문장은 query.xml에 작성
 			
 			stmt = conn.createStatement();
 			
@@ -57,18 +68,25 @@ public class JDBCExample3 {
 				String deptTitle = rs.getString("DEPT_TITLE");
 				int salary = rs.getInt("SALARY");
 				
+				// Emp 객체를 생성하여 컬럼값 담기
 //				Emp emp = new Emp(empName, deptTitle, salary);
+				// 생성된 Emp 객체를 List에 추가
+//				empList.add(emp);
 				
 				// List 에 바로 넣어주기
 				empList.add(new Emp(empName, deptTitle, salary));
-				
+				// 조회된 행의 개수만큼 들어감
 			}
 			
-			if(empList.isEmpty()) {
+			// 만약에 List 에 추가된 Emp 객체가 없다면 "조회 결과 없음"
+			// 있다면 순차적으로 출력
+			if(empList.isEmpty()) { // List 가 비어있을 경우
 				System.out.println("조회 결과 없음");
 			} else {
+				// 향상된 for 문
 				for(Emp list : empList) {
 					System.out.println(list);
+					// toString 오버라이딩된 형태로 출력됨
 				}
 			}
 			
