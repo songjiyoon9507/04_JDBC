@@ -5,7 +5,7 @@ import java.util.Properties;
 import java.util.Scanner;
 
 public class CreateXMLFile {
-public static void main(String[] args) {
+	public static void main(String[] args) {
 		
 		// XML(eXtensible Markup Language) : 단순화된 데이터 기술 형식 
 		
