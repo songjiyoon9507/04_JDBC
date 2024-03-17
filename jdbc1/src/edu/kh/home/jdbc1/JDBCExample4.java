@@ -36,13 +36,15 @@ public class JDBCExample4 {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("직급명 입력 : ");
-		String inputJobName = sc.next();
-		
-		System.out.print("급여 입력 : ");
-		int inputSalary = sc.nextInt();
 		
 		try {
+			
+			System.out.print("직급명 입력 : ");
+			String inputJobName = sc.next();
+			
+			System.out.print("급여 입력 : ");
+			int inputSalary = sc.nextInt();
+			
 			// connection
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			// 드라이버 경로 지정

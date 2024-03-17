@@ -7,6 +7,10 @@ public class Employee {
 	private int salary; // 급여
 	private int annualIncome; // 연봉
 	
+	// 필드 추가
+	private String hireDate; // 입사일
+	private char gender; // 남자는 M, 여자는 F
+	
 	public Employee() {}
 
 	public Employee(String empName, String jobName, int salary, int annualIncome) {
@@ -15,6 +19,22 @@ public class Employee {
 		this.jobName = jobName;
 		this.salary = salary;
 		this.annualIncome = annualIncome;
+	}
+
+	public String getHireDate() {
+		return hireDate;
+	}
+
+	public void setHireDate(String hireDate) {
+		this.hireDate = hireDate;
+	}
+
+	public char getGender() {
+		return gender;
+	}
+
+	public void setGender(char gender) {
+		this.gender = gender;
 	}
 
 	public String getEmpName() {
