@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>main-sql.xml file</comment>
+	
+	<!-- main 용 SQL 모음 -->
+	
+	<!-- 로그인 -->
+	<!-- 보안상 이유로 password는 가져오지 않음 -->
+	<!-- 비교만 하고 가져오진 않을 거 -->
+	<!-- 평문을 암호화 거쳐서 바꿈 암호화 되어있는 글자를 DB 에 저장하기 때문에
+		 비교 자체가 안됨 나중에 평문을 보내서 암호화된 비밀번호 비교하는 거 배울 거 -->
+	<entry key="login">
+		SELECT MEMBER_NO, MEMBER_ID, MEMBER_NM, MEMBER_GENDER,
+			TO_CHAR(ENROLL_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') ENROLL_DT
+		FROM "MEMBER"
+		WHERE MEMBER_ID = ?
+		AND MEMBER_PW = ?
+		AND UNREGISTER_FL = 'N'
+	</entry>
+	
+	<entry key="idDuplicationCheck">
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE UNREGISTER_FL = 'N'
+		AND MEMBER_ID = ?
+	</entry>
+	
+	<entry key="signUp">
+		INSERT INTO "MEMBER"
+		VALUES(SEQ_MEMBER_NO.NEXTVAL, ?, ?, ?, ?, DEFAULT, DEFAULT )
+	</entry>
+	
+</properties>
