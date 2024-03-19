@@ -78,6 +78,8 @@ public class MainDAO {
 				member = new Member();
 				
 				member.setMemberNo(memberNo);
+//				member.setMemberPw(memberPw);
+				// MemberView 에 updatePasswordS() 메서드 실행하려면 필요함
 				member.setMemberId(memberId);
 				member.setMemberName(memberName);
 				member.setMemberGender(memberGender);

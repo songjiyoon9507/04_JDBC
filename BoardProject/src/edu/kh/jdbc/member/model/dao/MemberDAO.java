@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Properties;
 
 import static edu.kh.jdbc.common.JDBCTemplate.*;
+
+import edu.kh.jdbc.common.Session;
 import edu.kh.jdbc.member.model.dto.Member;
 
 public class MemberDAO {
@@ -99,6 +101,79 @@ public class MemberDAO {
 		}
 		
 		// 4. 결과 반환
+		return result;
+	}
+
+	public int updatePassword(Connection conn, int updateNo, String updatePw) throws Exception {
+
+		int result = 0;
+		
+		String sql = prop.getProperty("updatePasswordS");
+		
+		pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, updatePw);
+		pstmt.setInt(2, updateNo);
+		
+		result = pstmt.executeUpdate();
+		
+		return result;
+	}
+
+	/** 비밀번호 변경 SQL 수행 DAO
+	 * @param conn
+	 * @param current
+	 * @param newPw1
+	 * @param memberNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updatePassword(Connection conn, String current, String newPw1, int memberNo) throws Exception {
+
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("updatePassword");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, newPw1);
+			pstmt.setString(2, current);
+			pstmt.setInt(3, memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	/** 회원 탈퇴 SQL 수행 DAO
+	 * @param conn
+	 * @param memberPw
+	 * @param memberNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int unRegisterMember(Connection conn, String memberPw, int memberNo) throws Exception {
+
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("unRegisterMember");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setString(2, memberPw);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
 		return result;
 	}
 	
