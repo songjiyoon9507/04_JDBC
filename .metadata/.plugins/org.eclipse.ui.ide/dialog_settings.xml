@@ -11,6 +11,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\workspace\JAVA\BusReservation"/>
 			<item value="C:\workspace\JAVA\bookManagement"/>
 			<item value="C:\workspace\04_JDBC\BoardProject"/>
 			<item value="C:\workspace\02_Java\11_collection"/>
@@ -26,6 +27,14 @@
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value="C:\workspace\04_JDBC\EM.zip"/>
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="226"/>
+		<item key="DIALOG_Y_ORIGIN" value="336"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
 		</list>
 	</section>
 </section>

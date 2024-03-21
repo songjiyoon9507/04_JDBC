@@ -42,6 +42,7 @@
     <fullyQualifiedTypeName name="edu.kh.jdbc.common.JDBCTemplate"/>
     <fullyQualifiedTypeName name="java.lang.StringBuffer"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="bookManagement.model.dto.Book"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="busReservation.common.JDBCTemplate"/>
 </qualifiedTypeNameHistroy>
