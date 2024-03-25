@@ -2,6 +2,7 @@ package edu.kh.home.jdbc1;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class JDBCExample3 {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
+		PreparedStatement pstmt = null;
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -45,10 +47,10 @@ public class JDBCExample3 {
 			// Class 부터 conn 까지 driver.xml에 만들어서 JDBCTemplate에서 connection 만듦
 			// static 메서드 써서 필요할 때 가져다 씀
 			
-			String sql = "SELECT EMP_NAME, NVL(DEPT_TITLE, '부서없음') DEPT_TITLE, SALARY"
-					+ " FROM EMPLOYEE"
-					+ " LEFT JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID)"
-					+ " WHERE NVL(DEPT_TITLE, '부서없음') = '" + input + "'";
+//			String sql = "SELECT EMP_NAME, NVL(DEPT_TITLE, '부서없음') DEPT_TITLE, SALARY"
+//					+ " FROM EMPLOYEE"
+//					+ " LEFT JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID)"
+//					+ " WHERE NVL(DEPT_TITLE, '부서없음') = '" + input + "'";
 			// Java 에서 작성되는 SQL에 문자열 변수 추가할 경우
 			// *** '' (DB 문자열 리터럴) 이 누락되지 않도록 주의 ***
 			// 만약 '' 미작성 시 String 값은 컬럼명으로 인식되어
@@ -56,9 +58,24 @@ public class JDBCExample3 {
 			
 			// SQL 문장은 query.xml에 작성
 			
-			stmt = conn.createStatement();
+//			stmt = conn.createStatement();
+//			
+//			rs = stmt.executeQuery(sql);
 			
-			rs = stmt.executeQuery(sql);
+//			String sql = "SELECT EMP_NAME, NVL(DEPT_TITLE, '부서없음') DEPT_TITLE, SALARY"
+//					+ " FROM EMPLOYEE"
+//					+ " LEFT JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID)"
+//					+ " WHERE NVL(DEPT_TITLE, '부서없음') = ?";
+			
+			String sql = "SELECT * "
+					+ " FROM EMPLOYEE"
+					+ " LEFT JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID)"
+					+ " WHERE NVL(DEPT_TITLE, '부서없음') = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, input);
+			
+			rs = pstmt.executeQuery();
 			
 			List<Emp> empList = new ArrayList<Emp>();
 			
