@@ -11,12 +11,23 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\workspace\02_Java"/>
+			<item value="C:\workspace\JAVA\Homework"/>
+			<item value="C:\workspace\JAVA\Exercise"/>
+			<item value="C:\workspace\04_JDBC"/>
 			<item value="C:\workspace\JAVA\BusReservation"/>
 			<item value="C:\workspace\JAVA\bookManagement"/>
 			<item value="C:\workspace\04_JDBC\BoardProject"/>
 			<item value="C:\workspace\02_Java\11_collection"/>
 			<item value="C:\workspace\02_Java\00_toyProject"/>
 		</list>
+		<section name="SmartImportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="72"/>
+			<item key="DIALOG_Y_ORIGIN" value="193"/>
+			<item key="DIALOG_WIDTH" value="884"/>
+			<item key="DIALOG_HEIGHT" value="606"/>
+			<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		</section>
 	</section>
 	<section name="ExternalProjectImportWizard">
 		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="true"/>
@@ -28,6 +39,13 @@
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value="C:\workspace\04_JDBC\EM.zip"/>
 		</list>
+		<section name="ExternalProjectImportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="217"/>
+			<item key="DIALOG_Y_ORIGIN" value="193"/>
+			<item key="DIALOG_WIDTH" value="615"/>
+			<item key="DIALOG_HEIGHT" value="694"/>
+			<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		</section>
 	</section>
 	<section name="ChooseWorkspaceDialogSettings">
 		<item key="DIALOG_X_ORIGIN" value="226"/>
